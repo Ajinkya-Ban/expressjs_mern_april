@@ -1,7 +1,8 @@
-const getUser = (req,res)=>
+const path = require('path');
+
+const getIndexPage = (req,res)=>
 {
- res.send("<h1>This is simple express JS application</h1>");
-    
+    res.sendFile(path.join(__dirname,"../public/index.html")); 
 }
 
 const adduser = (req,res)=>{
@@ -16,4 +17,4 @@ const adduser = (req,res)=>{
     
     }
 }
-module.exports = {getUser, adduser};
+module.exports = {getIndexPage, adduser};

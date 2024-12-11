@@ -1,11 +1,11 @@
 const express = require('express');
-const {getUser, adduser} = require('../controllers/usersController');
+const {getIndexPage, adduser} = require('../controllers/usersController');
 
 //creat the router object
 
 const router = express.Router();
 
-router.get('/',getUser);
+router.get('/',getIndexPage);
 router.post('/user-form',adduser);
 
 module.exports = router;

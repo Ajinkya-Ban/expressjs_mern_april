@@ -2,9 +2,14 @@ const express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 const path = require('path');
+const connectDB = require('./config/db');
+const color = require('colors');
 //var userRouter = require('./routes/usersRoutes');
 
 const app = express();
+
+//call to database
+connectDB();
 
 //middleware
 app.use(morgan("dev"));
@@ -26,5 +31,5 @@ app.use("/api/v1",require('./routes/usersRoutes'));
 
 const port = 7878;
 app.listen(port,()=>{
-    console.log(`Server running on port ${port}`);
+    console.log(`Server running on port ${port}`.bgRed);
 });

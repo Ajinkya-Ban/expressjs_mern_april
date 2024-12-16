@@ -1,5 +1,5 @@
 const express = require('express');
-const {getIndexPage, adduser} = require('../controllers/usersController');
+const {getIndexPage, adduser,createUser} = require('../controllers/usersController');
 
 //creat the router object
 
@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.get('/',getIndexPage);
 router.post('/user-form',adduser);
+router.post("/create-user",createUser)
 
 module.exports = router;
 

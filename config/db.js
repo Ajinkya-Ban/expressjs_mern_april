@@ -3,12 +3,13 @@
 
 const mongoose = require('mongoose');
 const color = require('colors');
-
+require('dotenv').config();
 const connectDB = async() =>
 {
     try
     {
-        const conn = await mongoose.connect('mongodb+srv://paypalajinkya:tHMhpnrM4bYf99dJ@mydb.1e8ak.mongodb.net/expressjs');
+        const mongoDBConn = process.env.DB_URL;
+        const conn = await mongoose.connect(mongoDBConn);
 
         console.log(`Connected to mongoDB :${conn.connection.host}`.bgGreen);
     } 

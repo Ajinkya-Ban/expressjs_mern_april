@@ -3,7 +3,8 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 const path = require('path');
 const connectDB = require('./config/db');
-const color = require('colors');
+
+
 //var userRouter = require('./routes/usersRoutes');
 
 const app = express();
@@ -13,6 +14,7 @@ connectDB();
 
 //middleware
 app.use(morgan("dev"));
+require('dotenv').config();
 
 //below code can be used for to set the path of public folder
 app.use(express.static(path.join(__dirname,"public")));
@@ -29,7 +31,7 @@ app.use("/api/v1",require('./routes/usersRoutes'));
 
 
 
-const port = 7878;
+const port = process.env.PORT;
 app.listen(port,()=>{
     console.log(`Server running on port ${port}`.bgRed);
 });

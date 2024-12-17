@@ -6,19 +6,8 @@ const getIndexPage = (req,res)=>
     res.sendFile(path.join(__dirname,"../public/index.html")); 
 }
 
-const adduser = (req,res)=>{
-    {
-        const {inputdata} = req.body;
-        res.json(
-            {
-               success:true,
-               message:`Welcome to expressJS ${inputdata}` 
-            }
-        )
-    
-    }
-}
 
+//CREATE NEW  USER 
 const createUser = async (req, res) =>{
 
     try 
@@ -43,4 +32,49 @@ const createUser = async (req, res) =>{
     }
 
 }
-module.exports = {getIndexPage, adduser, createUser};
+
+const getAllUsers = async(req,res)=>{
+    try {
+        const users = await UserModel.find({});
+        res.status(200).json({
+            suceess:true,
+            Total_Users:users.length,
+            users
+        });
+        
+    } catch (error) {
+        res.status(400).json({
+            success:false,
+            msg:"getting error in display all users",
+            error:error.message
+        });
+        
+    }
+}
+
+const getSingleUser = async(req,res) =>{
+
+    try {
+        const user = await UserModel.findById(req.params.id);
+        if(user)
+        {
+            res.status(200).json({
+                suceess:true,
+                user
+            });
+        }
+        else
+        {
+            res.status(400).send("User not found");
+        }
+    } catch (error) {
+        res.status(400).json({
+            success:false,
+            msg:"getting error in single user",
+            error: error.message
+        });
+        
+    }
+
+}
+module.exports = {getIndexPage, createUser, getAllUsers,getSingleUser};

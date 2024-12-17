@@ -1,23 +1,20 @@
 const express = require('express');
-const {getIndexPage, adduser,createUser} = require('../controllers/usersController');
+const {getIndexPage,createUser,getAllUsers,getSingleUser} = require('../controllers/usersController');
 
 //creat the router object
 
 const router = express.Router();
 
+//render html file 
 router.get('/',getIndexPage);
-router.post('/user-form',adduser);
-router.post("/create-user",createUser)
+
+//Create New User
+router.post("/create-user",createUser);
+
+//Get All users
+router.get('/get-all-users',getAllUsers);
+
+//Get single user
+router.get('/get-user/:id',getSingleUser);
 
 module.exports = router;
-
-
-/*
-
-http://localhost:7878/api/v1
-http://localhost:7878/api/v1/user-form
-http://localhost:7878/api/v1/user-form/100
-http://localhost:7878/api/v1/user-form/1/2
-
-
-*/

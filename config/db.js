@@ -1,5 +1,3 @@
-//mongodb://localhost:27017/express-js
-//'mongodb+srv://paypalajinkya:tHMhpnrM4bYf99dJ@mydb.1e8ak.mongodb.net/express  -->Atlas
 
 const mongoose = require('mongoose');
 const color = require('colors');
@@ -11,7 +9,7 @@ const connectDB = async() =>
         const mongoDBConn = process.env.DB_URL;
         const conn = await mongoose.connect(mongoDBConn);
 
-        console.log(`Connected to mongoDB :${conn.connection.host}`.bgGreen);
+        console.log(`Connected to mongoDB :${conn.connection.host}`.bgMagenta);
     } 
     catch (error) 
     {

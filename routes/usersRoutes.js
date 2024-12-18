@@ -1,5 +1,5 @@
 const express = require('express');
-const {getIndexPage,createUser,getAllUsers,getSingleUser} = require('../controllers/usersController');
+const {getIndexPage,createUser,getAllUsers,getSingleUser,updateUser,userdelete} = require('../controllers/usersController');
 
 //creat the router object
 
@@ -16,5 +16,11 @@ router.get('/get-all-users',getAllUsers);
 
 //Get single user
 router.get('/get-user/:id',getSingleUser);
+
+//update the user
+router.put('/update-user/:id',updateUser);
+
+//Delete the user
+router.delete("/user-delete/:id", userdelete);
 
 module.exports = router;

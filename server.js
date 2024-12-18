@@ -3,7 +3,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 const path = require('path');
 const connectDB = require('./config/db');
-
+const colors = require('colors');
 
 //var userRouter = require('./routes/usersRoutes');
 
@@ -13,7 +13,7 @@ const app = express();
 connectDB();
 
 //middleware
-app.use(morgan("dev"));
+app.use(morgan("combined"));
 require('dotenv').config();
 
 //below code can be used for to set the path of public folder
@@ -28,6 +28,7 @@ app.use(bodyParser.json())
 
 //define the route/endpoint
 app.use("/api/v1",require('./routes/usersRoutes'));
+
 
 
 

@@ -1,0 +1,15 @@
+.adjust-text{
+    text-align: justify;
+}
+.navbar-nav .nav-link{
+    color: white;
+}
+.navbar-nav .nav-link:hover{
+    background-color: #19243a;
+    color: white;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}

@@ -144,5 +144,22 @@ const userdelete = async(req,res)=>{
 
 }
 
+const getHomeEjs = (req,res)=>{
+   res.render('pages/home');
+}
 
-module.exports = {getIndexPage, createUser, getAllUsers,getSingleUser,updateUser,userdelete};
+
+const aboutEJS = (req,res) =>{
+   res.render("pages/about");
+
+}
+
+const contactEJS = (req,res)=>{
+    res.render('pages/contact');
+}
+
+const registerEJS = (req,res)=>{
+    res.render("pages/register");
+}
+
+module.exports = {getIndexPage, createUser, getAllUsers,getSingleUser,updateUser,userdelete, getHomeEjs, aboutEJS, contactEJS,registerEJS};
